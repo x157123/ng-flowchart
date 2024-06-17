@@ -52,25 +52,29 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/workspace",
+            "outputPath": {
+              "base": "dist/workspace"
+            },
             "index": "projects/workspace/src/index.html",
-            "main": "projects/workspace/src/main.ts",
-            "polyfills": "projects/workspace/src/polyfills.ts",
+            "polyfills": [
+              "projects/workspace/src/polyfills.ts"
+            ],
             "tsConfig": "projects/workspace/tsconfig.app.json",
             "assets": [
               "projects/workspace/src/favicon.ico",
               "projects/workspace/src/assets"
             ],
-            "styles": ["projects/workspace/src/styles.scss"],
+            "styles": [
+              "projects/workspace/src/styles.scss"
+            ],
             "scripts": [],
-            "vendorChunk": true,
             "extractLicenses": false,
-            "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
-            "namedChunks": true
+            "namedChunks": true,
+            "browser": "projects/workspace/src/main.ts"
           },
           "configurations": {
             "production": {
@@ -85,8 +89,6 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -106,18 +108,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "workspace:build"
+            "buildTarget": "workspace:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "workspace:build:production"
+              "buildTarget": "workspace:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "workspace:build"
+            "buildTarget": "workspace:build"
           }
         },
         "test": {
@@ -131,7 +133,9 @@
               "projects/workspace/src/favicon.ico",
               "projects/workspace/src/assets"
             ],
-            "styles": ["projects/workspace/src/styles.scss"],
+            "styles": [
+              "projects/workspace/src/styles.scss"
+            ],
             "scripts": []
           }
         },
@@ -164,5 +168,13 @@
       "@angular-eslint/schematics",
       "@angular-eslint/schematics"
     ]
+  },
+  "schematics": {
+    "@angular-eslint/schematics:application": {
+      "setParserOptionsProject": true
+    },
+    "@angular-eslint/schematics:library": {
+      "setParserOptionsProject": true
+    }
   }
 }
