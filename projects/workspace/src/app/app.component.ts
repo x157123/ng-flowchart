@@ -13,6 +13,7 @@ import { CustomStepComponent } from './custom-step/custom-step.component';
 import { RouteStepComponent } from './custom-step/route-step/route-step.component';
 import { FormStepComponent } from './form-step/form-step.component';
 import { NestedFlowComponent } from './nested-flow/nested-flow.component';
+import { FormClickComponent } from './form-click/form-click.component';
 
 @Component({
   selector: 'app-root',
@@ -70,11 +71,11 @@ export class AppComponent implements AfterViewInit {
       },
     },
     {
-      paletteName: 'Form Step',
+      paletteName: '页面点击',
       step: {
-        template: FormStepComponent,
-        type: 'form-step',
-        data: '123',
+        template: FormClickComponent,
+        type: 'html-click',
+        data: {},
       },
     },
     {
@@ -105,7 +106,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // this.stepRegistry.registerStep('rest-get', this.normalStepTemplate);
+    this.stepRegistry.registerStep('rest-get', this.normalStepTemplate);
     this.stepRegistry.registerStep('log', this.normalStepTemplate);
     this.stepRegistry.registerStep('router', CustomStepComponent);
     this.stepRegistry.registerStep('nested-flow', NestedFlowComponent);
