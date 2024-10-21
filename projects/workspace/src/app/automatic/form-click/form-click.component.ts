@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NgFlowchartStepComponent } from 'projects/ng-flowchart/src/lib/ng-flowchart-step/ng-flowchart-step.component';
+import { NgFlowchartStepComponent } from '../../../../../ng-flowchart/src/lib/ng-flowchart-step/ng-flowchart-step.component';
 import { FormsModule } from '@angular/forms';
 
 export type MyForm = {

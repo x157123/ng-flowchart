@@ -13,7 +13,7 @@ import { CustomStepComponent } from './custom-step/custom-step.component';
 import { RouteStepComponent } from './custom-step/route-step/route-step.component';
 import { FormStepComponent } from './form-step/form-step.component';
 import { NestedFlowComponent } from './nested-flow/nested-flow.component';
-import { FormClickComponent } from './form-click/form-click.component';
+import { FormClickComponent } from './automatic/form-click/form-click.component';
 
 @Component({
   selector: 'app-root',
